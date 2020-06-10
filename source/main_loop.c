@@ -22,7 +22,6 @@ static void clock_handling(window_t *win, win_clock_t *clock)
         CLEAR_BIT(win->is_on_pause, WAIT_CLOCK);
         win->player.life.is_hit = false;
         win->check_time += (win->check_time > 600) ? (-600) : (0.5);
-        printf("%f\n", win->check_time);
         if (win->status == gameplay_)
             set_time_filter(win);
     }

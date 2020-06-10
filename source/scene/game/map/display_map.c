@@ -70,7 +70,7 @@ void display_map(window_t *win, sfVector2f *tile_offset, sfVector2i *pos)
         }
         cur.y += TILE_PXL_SIZE;
     }
-    if (BIT(win->creative_mode, 1) == false) display_player(win, &win->player);
+    if (!BIT(win->creative_mode, 0)) display_player(win, &win->player);
     else creative_event(win, &win->creative);
     display_sprite(win, win->day);
     display_hud(win, &win->player);

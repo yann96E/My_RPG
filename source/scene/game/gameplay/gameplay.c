@@ -22,18 +22,16 @@ void detect_mouse(window_t *win, player_t *player)
 void gameplay(window_t *win)
 {
     display_map(win, CHECK_MODE(tile_offset), CHECK_MODE(pos));
-    if (BIT(win->is_on_pause, 1) == false || win->player.life.killed == false) {
-        if (BIT(win->is_on_pause, 2) == false &&
-            sfKeyboard_isKeyPressed(sfKeyEscape)) {
+    if (!BIT(win->is_on_pause, 1) && !win->player.life.killed) {
+        if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
             TOGGLE(win->is_on_pause, 0);
-            SET_BIT(win->is_on_pause, 2);
+            SET_BIT(win->is_on_pause, 1);
         }
-        if (BIT(win->creative_mode, 2) == false &&
-            sfKeyboard_isKeyPressed(sfKeyC))
-            switch_player_creative(win);
     }
-    if (BIT(win->is_on_pause, 1) == true) display_pause_menu(win);
-    else if (BIT(win->creative_mode, 1) == false)
+    if (!BIT(win->creative_mode, 1) && sfKeyboard_isKeyPressed(sfKeyC))
+        switch_player_creative(win);
+    if (BIT(win->is_on_pause, 0)) display_pause_menu(win);
+    else if (!BIT(win->creative_mode, 0))
         player_event(win, &win->player);
     else creative_event(win, &win->creative);
     detect_mouse(win, &win->player);

@@ -9,8 +9,8 @@
 
 void switch_player_creative(window_t *win)
 {
-    if (BIT(win->creative_mode, 1) == false) {
-        SET_BIT(win->creative_mode, 1);
+    if (!BIT(win->creative_mode, 0)) {
+        SET_BIT(win->creative_mode, 0);
         win->creative.tile_offset.x = win->player.tile_offset.x;
         win->creative.tile_offset.y = win->player.tile_offset.y;
         win->creative.pos.x = win->player.pos.x;
@@ -21,6 +21,6 @@ void switch_player_creative(window_t *win)
         CLEAR_BIT(win->creative_mode, 0);
         free(win->creative.control);
     }
-    SET_BIT(win->creative_mode, 2);
+    SET_BIT(win->creative_mode, 1);
 }
 
