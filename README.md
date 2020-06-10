@@ -16,10 +16,5 @@ Cloner et se placer dans le répertoire My_RPG
 
 ```
 make re
-```
-
-Lancement génération
-
-```
 ./Terraria
 ```
