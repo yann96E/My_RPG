@@ -1,6 +1,6 @@
 ### Pré-requis
 
-De quoi avez-vous besoin pour installer le logiciel et comment l'installer ?
+De quoi avez-vous besoin pour installer le logiciel ?
 
 ```
 gcc
